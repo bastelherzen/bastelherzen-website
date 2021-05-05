@@ -49,7 +49,8 @@
 
 .button-group > button {
     padding: 10px;
-    border-radius: 0px;;
+    border-radius: 0px;
+    border-width: 2px!important;
 }
 
 .button-group > button:hover {
@@ -62,4 +63,24 @@
 // Desktop immer n Bilder auf einer Seite: max width von x pixeln
 // Höhe aber auch beschränkt
 
+.buttons {
+    height: 25px;
+    width: 25px;
+}
 
+@media screen and (max-width:768px) {
+    .block-products > .card {
+        margin: 0px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .block-products > .card > .card-img {
+        width: 100%;
+    }
+
+    .info {
+        display: none;
+    }
+  }
