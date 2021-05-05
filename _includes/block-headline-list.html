@@ -1,0 +1,11 @@
+<section id="{{ section.slug | slugify }}" class="block block-headline-list">
+  <div class="container">
+    <div class="columns">
+      {% for line in section.headlines %}
+      <div class="column">
+        <h2>{{ line.line }}</h2>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

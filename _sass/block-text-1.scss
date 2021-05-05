@@ -1,0 +1,30 @@
+.block-text-1 {
+  padding: 8rem 0;
+
+
+
+  .columns {
+    margin: 0;
+  
+    .column {
+      margin: 0;
+      text-align: center;
+  
+      .sub-headline {
+        font-weight: 768;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+  
+      .cta {
+        margin: 2rem 0;
+      }
+    }
+  }
+  
+  
+  
+  @media screen and (min-width:768px) {
+  
+  }
+}

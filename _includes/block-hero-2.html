@@ -1,0 +1,11 @@
+<section class="block block-hero-2">
+  <div class="container">
+      <div class="column text">
+        <h1><span class="light">{{ section.headline }}</span></h1>
+        <p>{{ section.content }}</p>
+        {% if section.cta and section.cta.enabled == true %}
+        <a class="button primary" href="{{ section.cta.url }}">{{ section.cta.button_text }}</a>
+        {% endif %}
+      </div>
+  </div>
+</section>

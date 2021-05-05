@@ -1,0 +1,16 @@
+<div class="block-carousel" style="height: {{section.height}}; padding-top: {{section.padding_top}}">
+  <div class="container">
+    <input type="radio" name="slider" id="item-1" checked>
+    <input type="radio" name="slider" id="item-2">
+    <input type="radio" name="slider" id="item-3">
+    <div class="cards">
+      {% for card in section.cards %}
+        <label class="card" for="item-{{card.number}}" id="song-{{card.number}}">
+          <img
+            src="{{ card.image | relative_url }}"
+            alt="song">
+        </label>
+      {% endfor %}
+    </div>
+  </div>
+</div>

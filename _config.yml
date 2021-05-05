@@ -1,0 +1,17 @@
+title: Plotterherz | Produkte mit Liebe
+url: 
+baseurl:
+author: Plotterherz
+email: plotterherz@web.de
+description: >-
+  Plotterherz | Produkte beplottert mit Liebe!
+
+# Build settings
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default" # this ensures all content renders with layouts/default.html
+
+plugins:
+  - jekyll-feed
