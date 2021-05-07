@@ -1,16 +1,78 @@
 <div class="block-carousel" style="height: {{section.height}}; padding-top: {{section.padding_top}}">
   <div class="container">
-    <input type="radio" name="slider" id="item-1" checked>
-    <input type="radio" name="slider" id="item-2">
-    <input type="radio" name="slider" id="item-3">
-    <div class="cards">
+    {% for card in section.cards %}
+      <input type="radio" name="slider" id="item-{{card.number}}" checked>
+    {% endfor %}
+    <div class="cards" id="carouselInner">
       {% for card in section.cards %}
         <label class="card" for="item-{{card.number}}" id="song-{{card.number}}">
-          <img
-            src="{{ card.image | relative_url }}"
-            alt="song">
+          <div
+            style="background-image: url({{ card.image | relative_url }}), linear-gradient(#90A1A8, #949C91);"
+            alt="song"
+            class="img"></div>
         </label>
       {% endfor %}
     </div>
+
+      <div class="indicators">
+        {% for card in section.cards %}
+        <div id="indicator-{{card.number}}" class="indicator"></div>
+        {% endfor %}
+      </div>
+    <script>
+      const carouselInner = document.getElementById("carouselInner");
+      const fixedLength = Object.assign({}, {length: carouselInner.children.length});
+      const getNextChildIndex = (index) => {
+        index = parseInt(index);
+        if(index === fixedLength.length-1) {
+          return 0;
+        } else {
+          return index + 1;
+        }
+      }
+      const getBeforeChildIndex = (index) => {
+        index = parseInt(index);
+        if(index === 0) {
+          return fixedLength.length - 1;
+        } else {
+          return index - 1;
+        }
+      }
+      for(let childIndex = 0; childIndex < fixedLength.length; childIndex++) {
+        const child = carouselInner.children[childIndex];
+        const styleTemplate = `
+        <style>
+          .card {
+            display: none;
+          }
+
+          #item-${childIndex}:checked ~ .cards #song-${getBeforeChildIndex(childIndex)} {
+              transform: translatex(-50%) scale(0.8);
+              opacity: 0.4;
+              z-index: 0;
+              display:block;
+          }
+          #item-${childIndex}:checked ~ .cards #song-${getNextChildIndex(childIndex)} {
+              transform: translatex(50%) scale(0.8);
+              opacity: 0.4;
+              z-index: 0;
+              display:block;
+          }
+          #item-${childIndex}:checked ~ .cards #song-${childIndex} {
+              transform: translatex(0) scale(1);
+              opacity: 1;
+              z-index: 1;
+              display:block;
+          }
+
+          #item-${childIndex}:checked ~ .indicators #indicator-${childIndex} {
+              background-color: black;
+          }
+
+        </style>
+        `
+        carouselInner.insertAdjacentHTML('beforeend', styleTemplate);
+      }
+    </script>
   </div>
 </div>

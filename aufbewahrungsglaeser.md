@@ -20,19 +20,19 @@ page_sections:
     padding_top: "100px"
     cards:
         - image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_1.jpg"
-          number: 1
+          number: 0
         - image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_2.jpg" 
-          number: 2
+          number: 1
         - image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_3.jpg" 
-          number: 3
+          number: 2
         - image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_4.jpg"
-          number: 4 
+          number: 3
         - image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_5.jpg" 
-          number: 5
+          number: 4
         - image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_6.jpg" 
-          number: 6
+          number: 5
         - image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_7.jpg" 
-          number: 7
+          number: 6
 
   
   - template: simple-footer
