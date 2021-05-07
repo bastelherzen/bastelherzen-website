@@ -9,9 +9,11 @@
         <div class="text">
           {{ section.content }}
         </div>
+        {% if section.cta%}
         <div class="cta">
           <a class="button primary" href="{{ section.cta.url }}">{{ section.cta.button_text }}</a>
         </div>
+        {% endif %}
       </div>
     </div>
   </div>

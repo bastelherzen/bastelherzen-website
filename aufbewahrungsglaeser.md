@@ -34,6 +34,10 @@ page_sections:
         - image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_7.jpg" 
           number: 6
 
+  - template: product-description
+    block: product-description
+    headline: Test
+
   
   - template: simple-footer
     block: footer-2

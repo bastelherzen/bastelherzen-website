@@ -33,6 +33,7 @@ page_sections:
         content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
         price: "19,99€"
         image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_7.jpg"
+        infolink: "/aufbewahrungsglaeser"
       - number: 2
         name: "Aufbewahrungsglas"
         content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"

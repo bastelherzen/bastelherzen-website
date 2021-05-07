@@ -1,78 +1,123 @@
 <div class="block-carousel" style="height: {{section.height}}; padding-top: {{section.padding_top}}">
-  <div class="container">
+  <div class="carousel-container">
     {% for card in section.cards %}
-      <input type="radio" name="slider" id="item-{{card.number}}" checked>
+    <input type="radio" name="slider" id="item-{{card.number}}">
     {% endfor %}
     <div class="cards" id="carouselInner">
       {% for card in section.cards %}
-        <label class="card" for="item-{{card.number}}" id="song-{{card.number}}">
-          <div
-            style="background-image: url({{ card.image | relative_url }}), linear-gradient(#90A1A8, #949C91);"
-            alt="song"
-            class="img"></div>
-        </label>
+      <label class="card" for="item-{{card.number}}" id="song-{{card.number}}">
+        <div style="background-image: url({{ card.image | relative_url }})" alt="song" class="img">
+          <img src="{{ card.image | relative_url }}" style="visibility: hidden;" />
+        </div>
+      </label>
       {% endfor %}
     </div>
 
-      <div class="indicators">
-        {% for card in section.cards %}
-        <div id="indicator-{{card.number}}" class="indicator"></div>
-        {% endfor %}
-      </div>
-    <script>
-      const carouselInner = document.getElementById("carouselInner");
-      const fixedLength = Object.assign({}, {length: carouselInner.children.length});
-      const getNextChildIndex = (index) => {
-        index = parseInt(index);
-        if(index === fixedLength.length-1) {
-          return 0;
-        } else {
-          return index + 1;
-        }
-      }
-      const getBeforeChildIndex = (index) => {
-        index = parseInt(index);
-        if(index === 0) {
-          return fixedLength.length - 1;
-        } else {
-          return index - 1;
-        }
-      }
-      for(let childIndex = 0; childIndex < fixedLength.length; childIndex++) {
-        const child = carouselInner.children[childIndex];
-        const styleTemplate = `
-        <style>
-          .card {
-            display: none;
-          }
+    <div class="indicators">
+      {% for card in section.cards %}
+      <div id="indicator-{{card.number}}" class="indicator">&#10084;</div>
+      {% endfor %}
+    </div>
 
-          #item-${childIndex}:checked ~ .cards #song-${getBeforeChildIndex(childIndex)} {
-              transform: translatex(-50%) scale(0.8);
-              opacity: 0.4;
-              z-index: 0;
-              display:block;
+    <script>
+      var imgs = document.images,
+        len = imgs.length,
+        counter = 0;
+
+      [].forEach.call(imgs, function (img) {
+        if (img.complete)
+          incrementCounter();
+        else
+          img.addEventListener('load', incrementCounter, false);
+      });
+
+      function incrementCounter() {
+        counter++;
+        if (counter === len) {
+          const carouselInner = document.getElementById("carouselInner");
+          document.getElementById('item-0').setAttribute("checked", true);
+          const fixedLength = Object.assign({}, { length: carouselInner.children.length });
+          const childrenWidthsFixed = Object.assign({}, [...carouselInner.children].map(child => child.clientWidth));
+          const getNextChildIndex = (index) => {
+            index = parseInt(index);
+            if (index === fixedLength.length - 1) {
+              return 0;
+            } else {
+              return index + 1;
+            }
           }
-          #item-${childIndex}:checked ~ .cards #song-${getNextChildIndex(childIndex)} {
-              transform: translatex(50%) scale(0.8);
-              opacity: 0.4;
-              z-index: 0;
-              display:block;
+          const getBeforeChildIndex = (index) => {
+            index = parseInt(index);
+            if (index === 0) {
+              return fixedLength.length - 1;
+            } else {
+              return index - 1;
+            }
           }
-          #item-${childIndex}:checked ~ .cards #song-${childIndex} {
-              transform: translatex(0) scale(1);
+          for (let childIndex = 0; childIndex < fixedLength.length; childIndex++) {
+            const child = carouselInner.children[childIndex];
+            const childWidth = childrenWidthsFixed[childIndex];
+            const childBeforeWidth = childrenWidthsFixed[getBeforeChildIndex(childIndex)] * 0.9;
+            const childNextWidth = childrenWidthsFixed[getNextChildIndex(childIndex)] * 0.9;
+            const childBeforeBeforeWidth = childrenWidthsFixed[getBeforeChildIndex(getBeforeChildIndex(childIndex))] * 0.8;
+            const childNextNextWidth = childrenWidthsFixed[getNextChildIndex(getNextChildIndex(childIndex))] * 0.8;
+            const styleTemplate = `
+          <style>
+
+            #item-${childIndex}:checked ~ .cards #song-${getBeforeChildIndex(childIndex)} {
+              transform: translatex(-${childWidth / 2 + childBeforeWidth / 2 - 10}px) scale(0.9);
               opacity: 1;
               z-index: 1;
               display:block;
-          }
+              filter: blur(4px);
+              -webkit-filter: blur(4px);
+            }
 
-          #item-${childIndex}:checked ~ .indicators #indicator-${childIndex} {
-              background-color: black;
-          }
+            #item-${childIndex}:checked ~ .cards #song-${getNextChildIndex(childIndex)} {
+                transform: translatex(${childWidth / 2 + childNextWidth / 2 - 10}px) scale(0.9);
+                opacity: 1;
+                z-index: 1;
+                display:block;
+                filter: blur(4px);
+                -webkit-filter: blur(4px);
+            }
+            #item-${childIndex}:checked ~ .cards #song-${getBeforeChildIndex(getBeforeChildIndex(childIndex))} {
+              transform: translatex(-${childWidth / 2 + childBeforeWidth / 2 + childBeforeBeforeWidth / 2 - 10}px) scale(0.8);
+              opacity: 0.2;
+              z-index: 0;
+              display:block;
+              filter: blur(4px);
+              -webkit-filter: blur(4px);
+            }
 
-        </style>
-        `
-        carouselInner.insertAdjacentHTML('beforeend', styleTemplate);
+            #item-${childIndex}:checked ~ .cards #song-${getNextChildIndex(getNextChildIndex(childIndex))} {
+                transform: translatex(${childWidth / 2 + childNextWidth / 2 + childNextNextWidth / 2 - 10}px) scale(0.8);
+                opacity: 0.2;
+                z-index: 0;
+                display:block;
+                filter: blur(4px);
+                -webkit-filter: blur(4px);
+            }
+            #item-${childIndex}:checked ~ .cards #song-${childIndex} {
+                transform: translatex(0) scale(1);
+                opacity: 1;
+                z-index: 2;
+                display:block;
+            }
+  
+            #item-${childIndex}:checked ~ .indicators #indicator-${childIndex} {
+                color: #005F6A;
+            }
+  
+          </style>
+          `
+            carouselInner.insertAdjacentHTML('beforeend', styleTemplate);
+          }
+          const dontDisplayCards = `<style>.card {opacity: 0}</style>`;
+          carouselInner.insertAdjacentHTML('beforeend', dontDisplayCards);
+        }
       }
+
     </script>
   </div>
 </div>
