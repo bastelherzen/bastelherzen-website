@@ -1,7 +1,7 @@
 <div class="block-carousel" style="height: {{section.height}}; padding-top: {{section.padding_top}}">
   <div class="carousel-container">
     {% for card in section.cards %}
-    <input type="radio" name="slider" id="item-{{card.number}}">
+    <input class="input-radios" type="radio" name="slider" id="item-{{card.number}}">
     {% endfor %}
     <div class="cards" id="carouselInner">
       {% for card in section.cards %}
@@ -115,9 +115,53 @@
           }
           const dontDisplayCards = `<style>.card {opacity: 0}</style>`;
           carouselInner.insertAdjacentHTML('beforeend', dontDisplayCards);
+
+          const inputRadios = document.getElementsByClassName('input-radios');
+          let checkedIndex = 0;
+
+          var touchstartX = 0;
+          var touchstartY = 0;
+          var touchendX = 0;
+          var touchendY = 0;
+
+          var gesuredZone = carouselInner
+
+          gesuredZone.addEventListener('touchstart', function (event) {
+            touchstartX = event.changedTouches[0].screenX;
+            touchstartY = event.changedTouches[0].screeny;
+          }, false);
+
+          gesuredZone.addEventListener('touchend', function (event) {
+            touchendX = event.changedTouches[0].screenX;
+            touchendY = event.changedTouches[0].screenY;
+            handleGesure();
+          }, false);
+
+          function handleGesure() {
+            var swiped = 'swiped: ';
+            if (touchendX < touchstartX) {
+              console.log("swipedLeft");
+              [...inputRadios].forEach((inputRadio, inputIndex) => {
+                if (!inputRadios[inputIndex]) return;
+                const checked = inputRadios[inputIndex].checked;
+                if (checked) checkedIndex = inputIndex;
+                inputRadios[inputIndex].setAttribute('checked', false);
+              })
+              inputRadios[getNextChildIndex(checkedIndex)].checked = true;
+            }
+            if (touchendX > touchstartX) {
+              console.log("swipedLeft");
+              [...inputRadios].forEach((inputRadio, inputIndex) => {
+                if (!inputRadios[inputIndex]) return;
+                const checked = inputRadios[inputIndex].checked;
+                if (checked) checkedIndex = inputIndex;
+                inputRadios[inputIndex].setAttribute('checked', false);
+              })
+              inputRadios[getBeforeChildIndex(checkedIndex)].checked = true;
+            }
+          }
         }
       }
-
     </script>
   </div>
 </div>

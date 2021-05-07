@@ -4,7 +4,6 @@ title: Plotterherz | Aufbewahrungsglas
 date: 2021-04-28T23:00:00.000+00:00
 page_sections:
 
-
   - template: navigation-header-w-button
     block: header-2
     logo: "/assets/logos/logo_2.svg"
@@ -14,10 +13,15 @@ page_sections:
       - link: "#Überuns"
         link_text: Wer sind wir?
 
+  - template: back-to-navigation
+    block: back-to-navigation
+    text: "Zurück zu unseren Produkten"
+    link: "/#products"
+
   - template: carousel
     block: carousel
     height: "600px"
-    padding_top: "100px"
+    padding_top: "0px"
     cards:
         - image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_1.jpg"
           number: 0

@@ -27,7 +27,7 @@
         left: 0;
         right: 0;
         margin: auto;
-        transition: transform 1s ease;
+        transition: transform .75s ease;
         cursor: pointer;
     }
 
@@ -77,5 +77,14 @@
 
     img {
         height: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .block-carousel {
+        max-height: 300px;
+    }
+    .carousel-container {
+        max-height: 300px!important;
     }
 }
