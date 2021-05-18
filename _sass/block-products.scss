@@ -12,6 +12,8 @@
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -32,13 +34,15 @@
     line-height: 1rem;
 }
 
-.block-products > .card > .card-img {
+.block-products > .card .card-img {
     transition: transform .2s;
     height: 250px;
     width: 400px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     // background-image: url("IMAGE_URL"), linear-gradient(#eb01a5, #d13531);
 }
 
@@ -55,7 +59,8 @@
     padding: 10px;
     margin: 3px;
     border-radius: 0px;
-    border-width: 2px!important;
+    border-width: 0px!important;
+    border-radius: 5px;
 }
 
 .button-group > a:hover {

@@ -2,9 +2,13 @@
     {% for product in section.products %}
     <div class="card">
         <!-- <div class="card-img" style="position: relative; z-index: -1; background-size: contain; background: radial-gradient(circle closest-corner at 0% 100%, white 15%, rgba(255, 255, 255, 0.7) 100%), url({{ product.image | relative_url }});" alt="Avatar"></div> -->
-        <div class="card-img"
-            style="background-image: url({{ product.image | relative_url }}); background-image: url({{ product.image | relative_url }}), linear-gradient(#90A1A8, #949C91);"
-            alt="Avatar"></div>
+        <a href="{{ product.infolink | relative_url }}">
+            <div class="card-img"
+                style="background-image: url({{ product.image | relative_url }}); background-image: url({{ product.image | relative_url }}), linear-gradient(#90A1A8, #949C91);"
+                alt="Avatar">
+            </div>
+        </a>
+
         <div class="container">
                 <div class="text">
                     <p><b>{{product.name}}</b></p>
