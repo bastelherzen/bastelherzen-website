@@ -119,6 +119,48 @@
           const inputRadios = document.getElementsByClassName('input-radios');
           let checkedIndex = 0;
 
+          var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+          function preventDefault(e) {
+            if(e.cancelable) {
+              e.preventDefault();
+            }
+          }
+
+          function preventDefaultForScrollKeys(e) {
+            if (keys[e.keyCode]) {
+              preventDefault(e);
+              return false;
+            }
+          }
+
+          // modern Chrome requires { passive: false } when adding event
+          var supportsPassive = false;
+          try {
+            window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+              get: function () { supportsPassive = true; } 
+            }));
+          } catch(e) {}
+
+          var wheelOpt = supportsPassive ? { passive: false } : false;
+          var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+          // call this to Disable
+          function disableScroll() {
+            window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+            window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+            window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+            window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+          }
+
+          // call this to Enable
+          function enableScroll() {
+            window.removeEventListener('DOMMouseScroll', preventDefault, false);
+            window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
+            window.removeEventListener('touchmove', preventDefault, wheelOpt);
+            window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+          }
+
           var touchstartX = 0;
           var touchstartY = 0;
           var touchendX = 0;
@@ -128,19 +170,28 @@
 
           gesuredZone.addEventListener('touchstart', function (event) {
             touchstartX = event.changedTouches[0].screenX;
-            touchstartY = event.changedTouches[0].screeny;
+            touchstartY = event.changedTouches[0].screenY;
+          }, false);
+
+          gesuredZone.addEventListener('touchmove', function (event) {
+            if(touchstartX && touchstartY && event.changedTouches.length > 0) {
+              const actualScreenX = event.changedTouches[0].screenX;
+              if(Math.abs(touchstartX - actualScreenX) > 10) {
+                disableScroll();
+              }
+            }
           }, false);
 
           gesuredZone.addEventListener('touchend', function (event) {
             touchendX = event.changedTouches[0].screenX;
             touchendY = event.changedTouches[0].screenY;
             handleGesure();
+            enableScroll();
           }, false);
 
           function handleGesure() {
             var swiped = 'swiped: ';
-            if (touchendX < touchstartX) {
-              console.log("swipedLeft");
+            if (touchstartX - touchendX > 20) {
               [...inputRadios].forEach((inputRadio, inputIndex) => {
                 if (!inputRadios[inputIndex]) return;
                 const checked = inputRadios[inputIndex].checked;
@@ -149,8 +200,7 @@
               })
               inputRadios[getNextChildIndex(checkedIndex)].checked = true;
             }
-            if (touchendX > touchstartX) {
-              console.log("swipedLeft");
+            if (touchendX - touchstartX > 20) {
               [...inputRadios].forEach((inputRadio, inputIndex) => {
                 if (!inputRadios[inputIndex]) return;
                 const checked = inputRadios[inputIndex].checked;
