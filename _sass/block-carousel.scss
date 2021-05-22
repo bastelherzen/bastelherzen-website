@@ -68,11 +68,12 @@
     .indicators {
         display: flex;
         flex-direction: row;
+        user-select: none;
     }
 
     .indicator {
         margin: 2px;
-        color: lightgray;
+        filter: invert(100%) sepia(0%) saturate(7484%) hue-rotate(310deg) brightness(92%) contrast(78%);
     }
 
     
