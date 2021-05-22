@@ -121,9 +121,14 @@
 
           var keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
+          let cancelledScrolling = false;
+
           function preventDefault(e) {
             if(e.cancelable) {
+              cancelledScrolling = false;
               e.preventDefault();
+            } else {
+              cancelledScrolling = true;
             }
           }
 
@@ -191,7 +196,7 @@
 
           function handleGesure() {
             var swiped = 'swiped: ';
-            if (touchstartX - touchendX > 20) {
+            if (touchstartX - touchendX > 20 && !cancelledScrolling) {
               [...inputRadios].forEach((inputRadio, inputIndex) => {
                 if (!inputRadios[inputIndex]) return;
                 const checked = inputRadios[inputIndex].checked;
@@ -200,7 +205,7 @@
               })
               inputRadios[getNextChildIndex(checkedIndex)].checked = true;
             }
-            if (touchendX - touchstartX > 20) {
+            if (touchendX - touchstartX > 20 && !cancelledScrolling) {
               [...inputRadios].forEach((inputRadio, inputIndex) => {
                 if (!inputRadios[inputIndex]) return;
                 const checked = inputRadios[inputIndex].checked;
