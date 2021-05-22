@@ -65,7 +65,7 @@
           <style>
 
             #item-${childIndex}:checked ~ .cards #song-${getBeforeChildIndex(childIndex)} {
-              transform: translatex(-${childWidth / 2 + childBeforeWidth / 2 - 10}px) scale(0.9);
+              transform: translatex(-${Math.abs(childWidth / 2 + childBeforeWidth / 2 - 10)}px) scale(0.9);
               opacity: 1;
               z-index: 1;
               display:block;
@@ -82,7 +82,7 @@
                 -webkit-filter: blur(4px);
             }
             #item-${childIndex}:checked ~ .cards #song-${getBeforeChildIndex(getBeforeChildIndex(childIndex))} {
-              transform: translatex(-${childWidth / 2 + childBeforeWidth / 2 + childBeforeBeforeWidth / 2 - 10}px) scale(0.8);
+              transform: translatex(-${Math.abs(childWidth / 2 + childBeforeWidth / 2 + childBeforeBeforeWidth / 2 - 10)}px) scale(0.8);
               opacity: 0.2;
               z-index: 0;
               display:block;
