@@ -125,10 +125,10 @@
 
           function preventDefault(e) {
             if(e.cancelable) {
-              cancelledScrolling = false;
+              cancelledScrolling = true;
               e.preventDefault();
             } else {
-              cancelledScrolling = true;
+              cancelledScrolling = false;
             }
           }
 
@@ -196,7 +196,7 @@
 
           function handleGesure() {
             var swiped = 'swiped: ';
-            if (touchstartX - touchendX > 20 && !cancelledScrolling) {
+            if (touchstartX - touchendX > 20 && cancelledScrolling) {
               [...inputRadios].forEach((inputRadio, inputIndex) => {
                 if (!inputRadios[inputIndex]) return;
                 const checked = inputRadios[inputIndex].checked;
@@ -205,7 +205,7 @@
               })
               inputRadios[getNextChildIndex(checkedIndex)].checked = true;
             }
-            if (touchendX - touchstartX > 20 && !cancelledScrolling) {
+            if (touchendX - touchstartX > 20 && cancelledScrolling) {
               [...inputRadios].forEach((inputRadio, inputIndex) => {
                 if (!inputRadios[inputIndex]) return;
                 const checked = inputRadios[inputIndex].checked;
