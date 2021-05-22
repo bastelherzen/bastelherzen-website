@@ -20,7 +20,14 @@
         // border: 1px solid black;
         width: 30%;
         padding: 30px;
-        text-align: right;
+        text-align: center;
+    }
+
+    .buy-button {
+        width: 100%;
+        margin-top: 20px;
+        background-color: $primary;
+        color: white;
     }
 }
 

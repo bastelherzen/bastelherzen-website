@@ -34,7 +34,6 @@
       function incrementCounter() {
         counter++;
         if (counter === len) {
-          console.log("all images loaded");
           const carouselInner = document.getElementById("carouselInner");
           document.getElementById('item-0').setAttribute("checked", true);
           const fixedLength = Object.assign({}, { length: carouselInner.children.length });
@@ -62,7 +61,6 @@
             const childNextWidth = childrenWidthsFixed[getNextChildIndex(childIndex)] * 0.9;
             const childBeforeBeforeWidth = childrenWidthsFixed[getBeforeChildIndex(getBeforeChildIndex(childIndex))] * 0.8;
             const childNextNextWidth = childrenWidthsFixed[getNextChildIndex(getNextChildIndex(childIndex))] * 0.8;
-            console.log(childWidth, childBeforeBeforeWidth, childNextWidth);
             const styleTemplate = `
           <style>
 

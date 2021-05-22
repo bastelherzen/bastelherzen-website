@@ -1,32 +1,17 @@
 <div class="product-description">
     <div class="left">
-        <h1>Unsere Aufbewahrungsgläser</h1>
-        <br>
-        <p><b>Fassungsvermögen: 750ml</b></p>
-        <p><b>Durchmesser: 9cm</b></p>
-        <p><b>Höhe: 12cm</b></p>
-        <p><b>Spülmaschinenfest: Nein</b></p>
-        <br>
-        <p>Das Glas besitzt einen Deckel in Bambusoptik mit luftdichter Silikondichtung.</p>
-        <p>Du kannst dich zwischen zwei Motiven entscheiden, mit welchem du deiner Mama oder deiner besten Freundin ein
-            Lächeln ins Gesicht zaubern wirst &#10084;</p>
+        {{section.description}}
     </div>
     <div class="right">
         <h1>19,99€</h1><small>pro Stk. / zzgl. Versand</small>
         <br>
-        <p style="text-align: center; padding-top:30px; line-height: 1.5rem;">Für wen möchtest du unser Glas bestellen?</p>
-        <div class="radio-button-group">
-            <input type="radio" name="select" id="option-1" checked>
-            <input type="radio" name="select" id="option-2">
-            <label for="option-1" class="option option-1">
-                <div class="dot"></div>
-                <span>Mama</span>
-            </label>
-            <label for="option-2" class="option option-2">
-                <div class="dot"></div>
-                <span>Freundin</span>
-            </label>
-        </div>
-
+        <button id="{{section.productId}}" class="buy-button snipcart-add-item" data-item-id="1" data-item-price="19.99"
+            data-item-url="/aufbewahrungsglaeser" data-item-name="Aufbewahrungsglas"
+            data-item-custom1-name="Für wen ist das Glas?" data-item-custom1-options="Mutter|Freundin"
+            data-item-image="{{ section.image | relative_url }}" 
+            data-item-description="{{section.description-short}}"
+            >
+            In den Warenkorb
+        </button>
     </div>
 </div>

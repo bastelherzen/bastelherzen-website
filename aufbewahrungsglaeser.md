@@ -41,6 +41,21 @@ page_sections:
   - template: product-description
     block: product-description
     headline: Test
+    image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_2.jpg"
+    description: "
+    <h1>Unsere Aufbewahrungsgläser</h1>
+        <br>
+        <p><b>Fassungsvermögen: 750ml</b></p>
+        <p><b>Durchmesser: 9cm</b></p>
+        <p><b>Höhe: 12cm</b></p>
+        <p><b>Spülmaschinenfest: Nein</b></p>
+        <br>
+        <p>Das Glas besitzt einen Deckel in Bambusoptik mit luftdichter Silikondichtung.</p>
+        <p>Du kannst dich zwischen zwei Motiven entscheiden, mit welchem du deiner Mama oder deiner besten Freundin ein
+            Lächeln ins Gesicht zaubern wirst &#10084;</p>
+    "
+    description-short: "Unsere Gläser besitzen einen Deckel in Bambusoptik mit luftdichter Silikondichtung."
+    productId: 1
 
   
   - template: simple-footer
