@@ -1,0 +1,64 @@
+#snipcart {
+
+    --borderColor-input-focus: #005f69;
+    --borderColor-input-hover: #005f69;
+    --bgColor-buttonPrimary: #005f69;
+    --bgColor-buttonPrimary-hover: #005f69;
+    --color-buttonSecondary: white;
+    --color-buttonSecondary-hover: white;
+    --bgColor-buttonSecondary: #005f69;
+    --bgColor-buttonSecondary-hover: #005f69;
+    --color-badge: white;
+    --color-badge-active: white;
+    --bgColor-badge: #005f69;
+    --bgColor-badge-active: #005f69;
+    --color-icon: #005f69;
+    --color-link: #005f69;
+
+    z-index: 200;
+
+    > * {
+        z-index: 200;
+    }
+
+    // snipcart-form__address-autocomplete
+
+    a {
+        color: $primary;
+    }
+
+    // .snipcart-button-primary {
+    //     background-color: $primary;
+    // }
+
+    // .snipcart-button-icon {
+    //     background-color: $primary;
+    //     color: white;
+    // }
+
+    // .snipcart-button-link {
+    //     color: $primary;
+    // }
+
+    // .snipcart-form__select:hover {
+    //     border-color: $primary;
+    // }
+
+    // .snipcart-form__select:focus-within {
+    //     border-color: $primary;
+    // }
+
+    // .snipcart-item-quantity__quantity:hover {
+    //     border-color: $primary;
+    // }
+
+    // .snipcart-item-quantity__quantity:focus-within {
+    //     border-color: $primary;
+    // }
+
+    // .snipcart-input *:hover {
+    //     border-color: $primary;
+    // }
+
+}
+
