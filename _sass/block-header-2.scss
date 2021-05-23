@@ -19,18 +19,21 @@
 .logo {
   display: flex;
   font-size: larger;
-  // align-items: baseline;
+  // align-items: flex-end;
   text-decoration: none;
 }
 
 .logo > p {
-  margin-top: 26px;
-  margin-left: -25px;
+  margin-top: 10px;
+  margin-left: 0px;
+  // font-size: 1.1rem;
 }
 
 .block-header-2--logo img {
-  max-height: 28px;
-  max-height: 2rem
+  height: 35px;
+  width: 35px;
+  // max-height: 28px;
+  // max-height: 2rem
 }
 
 .block-header-2 .nav-item {

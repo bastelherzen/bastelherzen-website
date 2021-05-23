@@ -1,12 +1,12 @@
 ---
 layout: blocks
-title: Plotterherz | Aufbewahrungsglas
+title: Bastelherzen | Aufbewahrungsglas
 date: 2021-04-28T23:00:00.000+00:00
 page_sections:
 
   - template: navigation-header-w-button
     block: header-2
-    logo: "/assets/logos/logo_2.svg"
+    logo: "/assets/logos/logo.svg"
     navigation:
       - link: "#products"
         link_text: Produkte

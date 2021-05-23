@@ -6,6 +6,10 @@
     font-size: 3rem;
     text-decoration: none;
 
+    span {
+        color: $primary;
+    }
+
     .btn-container {
         transition: transform 0.2s;
         width: fit-content;

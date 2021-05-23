@@ -1,0 +1,110 @@
+.block-category {
+    margin-top: 10px;
+    padding: 80px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .c-block-card-carousel {
+        padding: 4rem 0;
+
+        .row {
+            padding: 2rem 0;
+            position: relative;
+
+            .carousel-inner {
+                display: flex;
+                overflow: auto;
+                max-width: 100vw;
+                padding: 1rem;
+                scroll-snap-type: mandatory;
+                scroll-snap-type: x mandatory;
+                cursor: grab;
+
+                // Hide scrollbar
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none; /* Firefox */
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .card {
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -khtml-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    margin: 0 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    flex: 0 0 80%;
+                    word-break: break-word;
+                    padding: 1rem;
+                    border-radius: $border-radius;
+                    // background-color: $accent-background;
+                    box-shadow: $shadow;
+
+                    scroll-snap-align: center;
+                    max-width: 95vw;
+
+                    .icon {
+                        font-size: 2rem;
+                        padding-bottom: 0.5rem;
+                    }
+
+                    p.text {
+                        font-weight: 300;
+                        font-size: 1.2rem;
+                    }
+
+                    .reference {
+                        margin-top: 0.5rem;
+                        font-weight: 200;
+                        font-size: 0.8rem;
+                    }
+                }
+
+                .card-img {
+                    transition: transform .2s;
+                    height: 250px;
+                    width: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                    // background-image: url("IMAGE_URL"), linear-gradient(#eb01a5, #d13531);
+                }
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            padding: 1rem 0;
+
+            .row .carousel-inner {
+                .card {
+                    margin: 0 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    flex: 0 0 20rem;
+                    scroll-snap-align: none;
+
+                    .text {
+                        font-size: 1.3rem;
+                    }
+
+                    .reference {
+                        font-size: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+<div class="block-category" style="background-color: {{section.background-color}};">
+    <h1>{{section.name}}</h1>
+    <br>
+    <h2>{{section.description}}</h2>
+    <br>
+    <button class="primary">{{section.ctaContent}}</button>
+    <div id="{{ section.slug | slugify }}" class="block c-block-card-carousel">
+        <div class="row" id="row">
+            <div id="carousel-{{section.number}}" class="carousel-inner">
+
+                {% for card in section.cards %}
+                <!-- <div class="card" id="{{ card.number }}">
+                    <div>
+                        <div class="icon">💡</div>
+                        <p class="text">{{ card.content }}</p>
+                    </div>
+                    <div class="reference">{{ card.reference }}</div>
+                </div> -->
+                <div class="card">
+                    <!-- <div class="card-img" style="position: relative; z-index: -1; background-size: contain; background: radial-gradient(circle closest-corner at 0% 100%, white 15%, rgba(255, 255, 255, 0.7) 100%), url({{ product.image | relative_url }});" alt="Avatar"></div> -->
+                    <a href="{{ card.infolink | relative_url }}">
+                        <div class="card-img"
+                            style="background-image: url({{ card.image | relative_url }}); background-image: url({{ card.image | relative_url }}), linear-gradient(#90A1A8, #949C91);"
+                            alt="Avatar">
+                        </div>
+                    </a>
+            
+                    <div class="container">
+                            <div class="text">
+                                <p><b>{{card.name}}</b></p>
+                                <p>{{card.price}}</p>
+                            </div>
+                            <div class="button-group">
+                                <a href="{{ card.infolink | relative_url }}" class="button primary info"><img class="buttons" src="{{ "/assets/images/icons/info.svg" | relative_url }}"></a>
+                                <a class="button primary shop"><img class="buttons" src="{{ "/assets/images/icons/shopping-cart.svg" | relative_url }}"></a>
+                            </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Script to enable scroll on drag -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ele = document.getElementById('carousel-{{section.number}}');
+            ele.style.cursor = 'grab';
+
+            let pos = { top: 0, left: 0, x: 0, y: 0 };
+
+            const mouseDownHandler = function (e) {
+                ele.style.cursor = 'grabbing';
+                ele.style.userSelect = 'none';
+
+                pos = {
+                    left: ele.scrollLeft,
+                    top: ele.scrollTop,
+                    // Get the current mouse position
+                    x: e.clientX,
+                    y: e.clientY,
+                };
+
+                document.addEventListener('mousemove', mouseMoveHandler);
+                document.addEventListener('mouseup', mouseUpHandler);
+            };
+
+            const mouseMoveHandler = function (e) {
+                // How far the mouse has been moved
+                const dx = e.clientX - pos.x;
+                const dy = e.clientY - pos.y;
+
+                // Scroll the element
+                ele.scrollTop = pos.top - dy;
+                ele.scrollLeft = pos.left - dx;
+            };
+
+            const mouseUpHandler = function () {
+                ele.style.cursor = 'grab';
+                ele.style.removeProperty('user-select');
+
+                document.removeEventListener('mousemove', mouseMoveHandler);
+                document.removeEventListener('mouseup', mouseUpHandler);
+            };
+
+            // Attach the handler
+            ele.addEventListener('mousedown', mouseDownHandler);
+
+            function populate() {
+                if (ele.offsetWidth + ele.scrollLeft >= ele.scrollWidth) {
+                    ele.innerHTML += ele.innerHTML;
+                }
+            }
+
+            ele.scroll({ left: ele.scrollWidth });
+            ele.addEventListener('scroll', populate);
+
+            populate(); // init document
+        });
+
+
+
+
+    </script>
