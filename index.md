@@ -10,7 +10,7 @@ page_sections:
     logo: "/assets/logos/logo.svg"
     logotext: "astelherzen"
     navigation:
-      - link: "#products"
+      - link: "/#products"
         link_text: Produkte
       - link: "#Überuns"
         link_text: Wer sind wir?
@@ -56,6 +56,10 @@ page_sections:
   #       price: "19,99€"
   #       image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_7.jpg"
 
+  - template: block-break-id
+    block: break-id
+    id: "products"
+
   - template: block-category-plottern
     block: category
     name: Plotterliebe.
@@ -63,6 +67,19 @@ page_sections:
     ctaContent: Hier gibts noch mehr davon!
     background-color: '#fafafa'
     number: 0
+    cards:
+      - number: 1
+        name: "Aufbewahrungsglas"
+        content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
+        price: "19,99€"
+        image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_7.jpg"
+        infolink: "/aufbewahrungsglaeser"
+      - number: 2
+        name: "Aufbewahrungsglas"
+        content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
+        price: "19,99€"
+        image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_7.jpg"
+        infolink: "/aufbewahrungsglaeser"
 
   - template: block-category-plottern
     block: category
@@ -72,13 +89,6 @@ page_sections:
     background-color: '#fafafa'
     slug: references
     number: 1
-    cards:
-      - number: 1
-        name: "Aufbewahrungsglas"
-        content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
-        price: "19,99€"
-        image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_7.jpg"
-        infolink: "/aufbewahrungsglaeser"
 
 
 
