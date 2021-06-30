@@ -1,19 +1,33 @@
 <header class="block block-header-2">
 
-    <div class="block-header-2--logo">
-      <a href="{{ '/' | relative_url }}" class="logo">
-        <img src="{{ section.logo | relative_url }}" alt="{{ site.title }}">
-        <p>{{ section.logotext }}</p>
-      </a>
-    </div>
-  
-    <nav class="block-header-2--nav">
-      <ul>
-        {% for nav_item in section.navigation %}
-        <li class="nav-item {% if page.url == nav_item.link %}active{% endif %}"><a
-            href="{{ nav_item.link | relative_url }}">{{ nav_item.link_text }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
+  <div class="block-header-2--logo">
+    <a href="{{ '/' | relative_url }}" class="logo">
+      <img src="{{ section.logo | relative_url }}" alt="{{ site.title }}">
+      <p>{{ section.logotext }}</p>
+    </a>
+  </div>
+
+  <nav class="block-header-2--nav">
+    <ul>
+      {% for nav_item in section.navigation %}
+      {% if nav_item.icon %}
+      <a href="{{ nav_item.link | relative_url }}" class="noselect icon {% if nav_item.cart == true %}snipcart-checkout{% endif %}"><img class="icon noselect"
+          src="{{ nav_item.icon | relative_url }}">
+          {% if nav_item.cart == true %}
+          <span class="snipcart-items-count"></span>
+        
+          {% endif %}</a>
+          {% if nav_item.cart == true %}
+
+            <span class="snipcart-total-price"></span>
+          {% endif %}
+      {% elsif nav_item.link_text %}
+      <li
+        class="nav-item {% if page.url == nav_item.link %}active{% endif %} {% if nav_item.cart == true %}snipcart-checkout{% endif %}">
+        <a href="{{ nav_item.link | relative_url }}">{{ nav_item.link_text }}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
 
 </header>

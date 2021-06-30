@@ -176,7 +176,7 @@
           gesuredZone.addEventListener('touchstart', function (event) {
             touchstartX = event.changedTouches[0].screenX;
             touchstartY = event.changedTouches[0].screenY;
-          }, false);
+          }, {passive: true});
 
           gesuredZone.addEventListener('touchmove', function (event) {
             if(touchstartX && touchstartY && event.changedTouches.length > 0) {
@@ -185,7 +185,7 @@
                 disableScroll();
               }
             }
-          }, false);
+          }, {passive: true});
 
           gesuredZone.addEventListener('touchend', function (event) {
             touchendX = event.changedTouches[0].screenX;

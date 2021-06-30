@@ -7,16 +7,16 @@ page_sections:
   - template: navigation-header-w-button
     block: header-2
     logo: "/assets/logos/logo.svg"
+    logotext: "astelherzen"
     navigation:
-      - link: "#products"
-        link_text: Produkte
-      - link: "#Überuns"
-        link_text: Wer sind wir?
+      - link: "#"
+        icon: "/assets/images/icons/cart.svg"
+        cart: true
 
   - template: back-to-navigation
     block: back-to-navigation
     text: "Zurück zu unseren Produkten"
-    link: "/#products"
+    link: "/#aufbewahrungsglas"
 
   - template: carousel
     block: carousel

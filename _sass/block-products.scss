@@ -59,25 +59,11 @@
 .button-group > a {
     padding: 10px;
     margin: 3px;
-    border-radius: 0px;
-    border-width: 0px!important;
     border-radius: 5px;
 }
 
 .button-group > a:hover {
     background-color: $primary;
-}
-
-//Mobil immer volle breite
-// 100 % width, und eine gewisse maximale Höhe
-
-// Desktop immer n Bilder auf einer Seite: max width von x pixeln
-// Höhe aber auch beschränkt
-
-.buttons {
-    height: 25px;
-    width: 25px;
-    margin: auto;
 }
 
 @media screen and (max-width:768px) {

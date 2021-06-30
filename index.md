@@ -10,10 +10,9 @@ page_sections:
     logo: "/assets/logos/logo.svg"
     logotext: "astelherzen"
     navigation:
-      - link: "/#products"
-        link_text: Produkte
-      - link: "#Überuns"
-        link_text: Wer sind wir?
+      - link: "#"
+        icon: "/assets/images/icons/cart.svg"
+        cart: true
 
   - template: hero-banner-w-image
     block: hero-2
@@ -25,36 +24,6 @@ page_sections:
       enabled: true
       url: "#products"
       button_text: Zu unseren Produkten
-
-  # - template: block-products
-  #   block: products
-  #   products:
-  #     - number: 1
-  #       name: "Aufbewahrungsglas"
-  #       content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
-  #       price: "19,99€"
-  #       image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_7.jpg"
-  #       infolink: "/aufbewahrungsglaeser"
-  #     - number: 2
-  #       name: "Aufbewahrungsglas"
-  #       content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
-  #       price: "19,99€"
-  #       image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_2.jpg"
-  #     - number: 3
-  #       name: "Aufbewahrungsglas"
-  #       content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
-  #       price: "19,99€"
-  #       image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_3.jpg"
-  #     - number: 4
-  #       name: "Aufbewahrungsglas"
-  #       content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
-  #       price: "19,99€"
-  #       image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_4.jpg"
-  #     - number: 5
-  #       name: "Aufbewahrungsglas"
-  #       content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
-  #       price: "19,99€"
-  #       image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_7.jpg"
 
   - template: block-break-id
     block: break-id
@@ -69,17 +38,33 @@ page_sections:
     number: 0
     cards:
       - number: 1
+        id: aufbewahrungsglas
         name: "Aufbewahrungsglas"
         content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
         price: "19,99€"
-        image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_7.jpg"
+        image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_6.jpg"
         infolink: "/aufbewahrungsglaeser"
       - number: 2
-        name: "Aufbewahrungsglas"
+        id: koordinatenrahmen
+        name: "Koordinatenrahmen"
         content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
         price: "19,99€"
-        image: "/assets/images/products/aufbewahrungsglas/aufbewahrungsglas_7.jpg"
-        infolink: "/aufbewahrungsglaeser"
+        image: "/assets/images/products/bilderrahmen_coordinates/IMG_0909.JPG"
+        infolink: "/koordinatenrahmen"
+      - number: 3
+        id: blumenrahmen
+        name: "Blumenrahmen"
+        content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
+        price: "19,99€"
+        image: "/assets/images/products/bilderrahmen_firstsummer/IMG_0872.JPG"
+        infolink: "/blumenrahmen"
+      - number: 4
+        id: grabkerze
+        name: "Grabkerze"
+        content: "Dieses Aufbewahrungsglas mit den Sprüchen 'blabla' und 'blabla2' eignet sich besonders für Mutter- oder Geburtstage zum Verschenken"
+        price: "19,99€"
+        image: "/assets/images/products/kerze/IMG_0888.JPG"
+        infolink: "/grabkerze"
 
   - template: block-category-plottern
     block: category
@@ -95,7 +80,7 @@ page_sections:
   
   - template: simple-footer
     block: footer-2
-    col_1: <a href="">Impressum</a>
-    col_2: Made with ❤︎ in Olfen
-    col_3: <a href="">About us</a>
+    col_1: <a href="impressum">Impressum</a>
+    col_2: Wir mit ❤︎ aus Olfen
+    col_3: <a href="">Datenschutz</a>
 ---

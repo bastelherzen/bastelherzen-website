@@ -1,19 +1,21 @@
 .block-category {
     margin-top: 10px;
-    padding: 80px 20px;
-    width: 100%;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-
     .c-block-card-carousel {
         margin: 1rem;
 
         .carousel-inner {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
 
             .card {
                 transition: 0.3s;
@@ -35,19 +37,20 @@
                 }
 
                 div.text {
-
                     padding: 1rem;
                     font-weight: 300;
                     font-size: 1.2rem;
                     text-align: left;
+                    word-break: normal;
                 }
 
                 a.button {
-                    background-color: $font-color-inverted;
+                    background-color: $accent-background;
                     transition: 0.2s;
 
                     &:hover {
-                        background-color: $primary;
+                        border-color: black;
+                        border: 5px solid;
                     }
                 }
 
@@ -72,6 +75,14 @@
                 &:hover {
                     transform: scale(1.05);
                 }
+
+                .c-icon {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 25px;
+                    border: 1px solid;
+                    border-color: $font-color-inverted;
+                }
             }
 
             .card-img {
@@ -90,21 +101,23 @@
         @media screen and (min-width: 768px) {
             padding: 1rem 0;
 
-            .row .carousel-inner {
-                .card {
-                    margin: 0 2rem;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    flex: 0 0 20rem;
-                    scroll-snap-align: none;
+            .block-category {
+                .row .carousel-inner {
+                    .card {
+                        margin: 0 2rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        flex: 0 0 20rem;
+                        scroll-snap-align: none;
 
-                    .text {
-                        font-size: 1.3rem;
-                    }
+                        .text {
+                            font-size: 1.3rem;
+                        }
 
-                    .reference {
-                        font-size: 0.5rem;
+                        .reference {
+                            font-size: 0.5rem;
+                        }
                     }
                 }
             }

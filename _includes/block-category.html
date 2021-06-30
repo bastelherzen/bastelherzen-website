@@ -7,7 +7,9 @@
     <div id="{{ section.slug | slugify }}" class="c-block-card-carousel">
         <div id="carousel-{{section.number}}" class="carousel-inner">
 
+
             {% for card in section.cards %}
+            <span class="anchor" id="{{card.id}}"></span>
             <!-- <div class="card" id="{{ card.number }}">
                     <div>
                         <div class="icon">💡</div>
@@ -15,7 +17,7 @@
                     </div>
                     <div class="reference">{{ card.reference }}</div>
                 </div> -->
-            <div class="card">
+            <div class="card" >
                 <!-- <div class="card-img" style="position: relative; z-index: -1; background-size: contain; background: radial-gradient(circle closest-corner at 0% 100%, white 15%, rgba(255, 255, 255, 0.7) 100%), url({{ product.image | relative_url }});" alt="Avatar"></div> -->
                 <a href="{{ card.infolink | relative_url }}">
                     <div class="card-img"
@@ -30,9 +32,9 @@
                         <p>{{card.price}}</p>
                     </div>
                     <div class="button-group">
-                        <a href="{{ card.infolink | relative_url }}" class="button primary info"><img class="buttons"
+                        <a href="{{ card.infolink | relative_url }}" class="button primary info c-icon"><img class="buttons"
                                 src="{{ "/assets/images/icons/info.svg" | relative_url }}"></a>
-                        <a class="button primary shop"><img class="buttons"
+                        <a class="button primary shop c-icon"><img class="buttons"
                                 src="{{ "/assets/images/icons/shopping-cart.svg" | relative_url }}"></a>
                     </div>
                 </div>

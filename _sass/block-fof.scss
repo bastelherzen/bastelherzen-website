@@ -1,0 +1,13 @@
+.block-fof {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 260px);
+
+    > * { 
+        margin: 20px 20px;
+        width: 100%;
+    }
+}
